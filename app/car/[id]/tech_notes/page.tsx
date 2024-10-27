@@ -164,7 +164,7 @@ export default function SkeletonPage() {
   const getCar = async () => {
     setIsLoading(true)
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`,{
+      const res = await fetch(`/api/car/${params.id}`,{
         method:"GET"
       })
       const data = await res.json();
