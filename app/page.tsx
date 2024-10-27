@@ -21,7 +21,7 @@ export default function Home() {
     setIsLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:3000/api/car?page=${page}&marka=${marka}&plaka=${plaka}&limit=${9}  `
+        `https://expertise-five.vercel.app/api/car?page=${page}&marka=${marka}&plaka=${plaka}&limit=${9}  `
       );
       const data = await res.json();
       setCars(data.data);
