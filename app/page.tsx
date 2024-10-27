@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
+
 export default function Home() {
   const [cars, setCars] = useState<CarDataProps[]>([]);
   const [carsLength, setCarsLength] = useState(0);
@@ -21,7 +23,9 @@ export default function Home() {
     setIsLoading(true);
     try {
       const res = await fetch(
-        `https://expertise-five.vercel.app/api/car?page=${page}&marka=${marka}&plaka=${plaka}&limit=${9}  `
+        `/api/car?page=${page}&marka=${marka}&plaka=${plaka}&limit=${9}  `,{
+         
+        }
       );
       const data = await res.json();
       setCars(data.data);

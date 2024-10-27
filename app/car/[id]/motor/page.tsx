@@ -210,7 +210,7 @@ export default function MotorPage() {
   const getCar = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id}`, {
+      const res = await fetch(`/api/car/${params.id}`, {
         method: "GET",
       });
       const data = await res.json();

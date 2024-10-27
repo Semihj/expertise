@@ -45,7 +45,7 @@ export default function CreatePage() {
   const handleCreate = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`https://expertise-five.vercel.app/api/car`, {
+      const res = await fetch(`/api/car`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

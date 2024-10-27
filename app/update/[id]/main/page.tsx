@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 import Loading from "@/components/Loading";
 import { CarDataProps } from "@/types/carData";
+
 const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
 
 export default function UpdateMainPage() {
@@ -19,8 +20,13 @@ export default function UpdateMainPage() {
   
   const getCar = async () => {
     try {
-      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id}`,{
-        method:"GET"
+      const res = await fetch(`/api/car/${params.id}`,{
+        method:"GET",
+        headers:{
+           "Access-Control-Allow-Origin":url,
+        }
+       
+
       })
       const data:CarDataProps = await res.json();
       setFormData(data)
@@ -38,17 +44,19 @@ export default function UpdateMainPage() {
   const handleUpdate = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id} `, {
+      const res = await fetch(`/api/car/${params.id} `, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":url,
+
         },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
       if (data) {
         setIsLoading(false);
-        router.push(`https://expertise-five.vercel.app/car/${data._id}`);
+        router.push(`/car/${data._id}`);
       }
       console.log(data);
     } catch (error) {
