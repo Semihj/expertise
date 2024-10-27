@@ -14,7 +14,7 @@ export default function CarPage() {
 
   const getCar = async () => {
     try {
-      const res = await fetch(`${url}/api/car/${params.id}`, {
+      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id}`, {
         method: "GET",
       });
       const data: CarDataProps = await res.json();

@@ -158,7 +158,7 @@ export default function SkeletonPage() {
     setIsLoading(true)
   
     try {
-      const res = await fetch(`${url}/api/car/${params.id}`,{
+      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id}`,{
         method:"PATCH",
         headers:{
           "Content-Type": "application/json"
@@ -203,7 +203,7 @@ export default function SkeletonPage() {
   const getCar = async () => {
     setIsLoading(true)
     try {
-      const res = await fetch(`${url}/api/car/${params.id}`,{
+      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id}`,{
         method:"GET"
       })
       const data = await res.json();

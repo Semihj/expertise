@@ -19,7 +19,7 @@ export default function UpdateMainPage() {
   
   const getCar = async () => {
     try {
-      const res = await fetch(`${url}/api/car/${params.id}`,{
+      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id}`,{
         method:"GET"
       })
       const data:CarDataProps = await res.json();
@@ -38,7 +38,7 @@ export default function UpdateMainPage() {
   const handleUpdate = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`${url}/api/car/${params.id} `, {
+      const res = await fetch(`https://expertise-five.vercel.app/api/car/${params.id} `, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export default function UpdateMainPage() {
       const data = await res.json();
       if (data) {
         setIsLoading(false);
-        router.push(`${url}/car/${data._id}`);
+        router.push(`https://expertise-five.vercel.app/car/${data._id}`);
       }
       console.log(data);
     } catch (error) {
