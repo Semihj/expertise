@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/dialog";
 import { FaTrash } from "react-icons/fa";
 
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
+
 export default function CarPage() {
   const [carData, setCarData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +31,7 @@ export default function CarPage() {
   const getCar = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`, {
+      const res = await fetch(`${url}/api/car/${params.id}`, {
         method: "GET",
       });
       const data = await res.json();

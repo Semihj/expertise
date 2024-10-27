@@ -5,6 +5,8 @@ import { CarDataProps } from "@/types/carData";
 import { useParams } from "next/navigation";
 import { FaFilePdf } from "react-icons/fa6";
 
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
+
 export default function CarPage() {
   const targetRef = useRef();
   const [carData, setCarData] = useState<CarDataProps>({});
@@ -12,7 +14,7 @@ export default function CarPage() {
 
   const getCar = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`, {
+      const res = await fetch(`${url}/api/car/${params.id}`, {
         method: "GET",
       });
       const data: CarDataProps = await res.json();

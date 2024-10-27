@@ -8,6 +8,9 @@ import React, { useEffect, useRef, useState } from "react";
 import Loading from "@/components/Loading";
 import { FaFilePdf } from "react-icons/fa6";
 
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
+
+
 export default function MotorPage() {
   const [motorData,setMotorData] = useState<MotorDataProps[]>([
     {
@@ -207,7 +210,7 @@ export default function MotorPage() {
   const getCar = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`, {
+      const res = await fetch(`${url}/api/car/${params.id}`, {
         method: "GET",
       });
       const data = await res.json();

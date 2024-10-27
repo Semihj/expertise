@@ -8,6 +8,8 @@ import React, { useEffect, useState } from 'react'
 import UpdateBar from './_components/UpdateBar';
 import Loading from '@/components/Loading';
 
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
+
 export default function MotorUpdate() {
 
   const [motorData,setMotorData] = useState<MotorDataProps[]>([
@@ -208,7 +210,7 @@ export default function MotorUpdate() {
   const handleUpdate = async () => {
     setIsLoading(true)
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`,{
+      const res = await fetch(`${url}/api/car/${params.id}`,{
         method:"PATCH",
         headers:{
           "Content-Type": "application/json"
@@ -231,7 +233,7 @@ export default function MotorUpdate() {
   const getCar = async () => {
     setIsLoading(true)
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`,{
+      const res = await fetch(`${url}/api/car/${params.id}`,{
         method:"GET"
       })
       const data = await res.json();

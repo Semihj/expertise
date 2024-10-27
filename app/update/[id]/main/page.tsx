@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 import Loading from "@/components/Loading";
 import { CarDataProps } from "@/types/carData";
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
 
 export default function UpdateMainPage() {
   const [formData, setFormData] = useState<CarDataProps>({});
@@ -18,7 +19,7 @@ export default function UpdateMainPage() {
   
   const getCar = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id}`,{
+      const res = await fetch(`${url}/api/car/${params.id}`,{
         method:"GET"
       })
       const data:CarDataProps = await res.json();
@@ -37,7 +38,7 @@ export default function UpdateMainPage() {
   const handleUpdate = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/car/${params.id} `, {
+      const res = await fetch(`${url}/api/car/${params.id} `, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +48,7 @@ export default function UpdateMainPage() {
       const data = await res.json();
       if (data) {
         setIsLoading(false);
-        router.push(`http://localhost:3000/car/${data._id}`);
+        router.push(`${url}/car/${data._id}`);
       }
       console.log(data);
     } catch (error) {

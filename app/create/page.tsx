@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Loading from "@/components/Loading";
 
+const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
+
 export default function CreatePage() {
   const [formData, setFormData] = useState({
     arac_giris_tarih:"",
@@ -43,7 +45,7 @@ export default function CreatePage() {
   const handleCreate = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/car`, {
+      const res = await fetch(`${url}/api/car`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +55,7 @@ export default function CreatePage() {
       const data = await res.json();
       if (data) {
         setIsLoading(false);
-        router.push(`http://localhost:3000/car/${data._id}`);
+        router.push(`/car/${data._id}`);
       }
       console.log(data);
     } catch (error) {
