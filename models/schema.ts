@@ -40,6 +40,9 @@ const carSchema = new Schema({
   marka:{
     type:String
   },
+  model:{
+    type:String
+  },
   model_yıl:{
     type:Number
   },

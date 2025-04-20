@@ -7,6 +7,9 @@ import generatePDF from "react-to-pdf";
 import React, { useEffect, useRef, useState } from "react";
 import Loading from "@/components/Loading";
 import { FaFilePdf } from "react-icons/fa6";
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/public/logo.png"
 
 const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
 
@@ -251,9 +254,14 @@ export default function MotorPage() {
         
         ref={targetRef}>
           <div className="flex w-full gap-20 h-20 px-4 items-center  ">
-          <h1 className="text-4xl text-yellow-500 font-bold ">
-            Teknik<span className="text-black italic">oto</span>
-          </h1>
+          <Link href={"/"} >  <Image
+        src={logo}
+        alt=""
+        width={150}
+        height={150}
+        className="object-cover object-center bg-black "
+        />
+        </Link>
           <div className="flex gap-4 ">
             <div className="flex flex-col uppercase">
               <h1 className="font-bold ">

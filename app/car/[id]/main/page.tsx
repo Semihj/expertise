@@ -4,6 +4,9 @@ import generatePDF from "react-to-pdf";
 import { CarDataProps } from "@/types/carData";
 import { useParams } from "next/navigation";
 import { FaFilePdf } from "react-icons/fa6";
+import Image from "next/image";
+import logo from "@/public/logo.png"
+import Link from "next/link";
 
 const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
 
@@ -42,9 +45,14 @@ export default function CarPage() {
         ref={targetRef}
       >
         <div className="flex w-full gap-20 h-20 px-4 items-center  ">
-          <h1 className="text-4xl text-yellow-500 font-bold ">
-            Teknik<span className="text-black italic">oto</span>
-          </h1>
+      <Link href={"/"} >  <Image
+        src={logo}
+        alt=""
+        width={150}
+        height={150}
+        className="object-cover object-center bg-black "
+        />
+        </Link>
           <div className="flex gap-4 ">
             <div className="flex flex-col uppercase">
               <h1 className="font-bold ">
@@ -52,7 +60,7 @@ export default function CarPage() {
                 <span className="uppercase font-normal ">{carData.marka}</span>
               </h1>
               <h1 className="font-bold ">
-                Plake:
+                Plaka:
                 <span className="uppercase font-normal ">{carData.plaka} </span>
               </h1>
             </div>
@@ -124,6 +132,10 @@ export default function CarPage() {
                 <div className="uppercase flex  w-1/2 ">
                   <h1 className="w-full">Marka</h1>
                   <span className="w-full">{carData?.marka} </span>
+                </div>
+                <div className="uppercase flex  w-1/2 ">
+                  <h1 className="w-full">Model</h1>
+                  <span className="w-full">{carData?.model} </span>
                 </div>
               </div>
               <div className="flex w-full justify-between px-5 py-2  font-semibold border-b ">

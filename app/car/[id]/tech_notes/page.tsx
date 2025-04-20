@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import car3 from "@/public/expertise3.jpg";
 import car4 from "@/public/expertise4.jpg";
@@ -12,6 +11,8 @@ import Loading from "@/components/Loading";
 import { CarDataProps } from "@/types/carData";
 import { FaFilePdf } from "react-icons/fa6";
 import generatePDF from "react-to-pdf";
+import Link from "next/link";
+import logo from "@/public/logo.png"
 
 
 
@@ -210,9 +211,14 @@ export default function SkeletonPage() {
       
       >
       <div className="flex w-full gap-20 h-20 px-4 items-center   ">
-          <h1 className="text-4xl text-yellow-500 font-bold ">
-            Teknik<span className="text-black italic">oto</span>
-          </h1>
+      <Link href={"/"} >  <img
+        src={logo.src}
+        alt=""
+        width={150}
+        height={150}
+        className="object-cover object-center bg-black "
+        />
+        </Link>
           <div className="flex gap-4 ">
             <div className="flex flex-col uppercase">
               <h1 className="font-bold ">
@@ -220,7 +226,7 @@ export default function SkeletonPage() {
                 <span className="uppercase font-normal ">{carData?.marka}</span>
               </h1>
               <h1 className="font-bold ">
-                Plake:
+                Plaka:
                 <span className="uppercase font-normal ">{carData?.plaka} </span>
               </h1>
             </div>
@@ -245,12 +251,14 @@ export default function SkeletonPage() {
         </div>
         <div className="w-full flex border-2 h-max " >
           <div className="-z-10 flex flex-col mt-10 gap-5">
-            <Image src={car3} alt="car" width={500} height={500} />
-            <Image src={car4} alt="car" width={500} height={500} />
+           <img src={car3.src} alt="car" width={500} height={500} />
+
+
+            <img src={car4.src} alt="car" width={500} height={500} />
            
           </div>
           <div className="">
-          <Image src={car5} alt="car" width={400} height={300} />
+          <img src={car5.src} alt="car" width={400} height={300} />
             
           </div>
           <div className="z-10 absolute">

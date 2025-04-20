@@ -16,7 +16,8 @@ export default function CreatePage() {
     olusturan:"",
     paket:"",
     ucret:0,
-    marka:"ad yok",
+    marka:"",
+    model:"",
     plaka:"",
     yakıt:"",
     sasi_no:"",
@@ -179,7 +180,18 @@ export default function CreatePage() {
                       className="font-semibold border p-1 focus:outline-none "
                     />
                   </div>
-                  <div className="  "></div>
+                  <div className="uppercase flex gap-24  w-full ">
+                    <h1 className="">Model</h1>
+                    <input
+                      onChange={handleChange}
+                      required
+
+                      name="model"
+                      type="text"
+                      className="font-semibold border p-1 focus:outline-none "
+                    />
+                  </div>
+                
                 </div>
                 <div className="flex w-full justify-between px-5 py-2  font-semibold border-b ">
                   <div className="uppercase flex  w-full ">

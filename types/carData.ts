@@ -14,6 +14,7 @@ export interface CarDataProps {
     paket: string;
     ucret: number;
     marka: string;
+    model:string;
     model_yıl: number;
     plaka: string;
     yakıt: string;

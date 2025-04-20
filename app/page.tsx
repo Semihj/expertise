@@ -2,6 +2,7 @@
 
 import Loading from "@/components/Loading";
 import Pagination from "@/components/pagination";
+import AdminOnly from "@/components/safety/AdminOnly";
 import { CarDataProps } from "@/types/carData";
 import { CirclePlus } from "lucide-react";
 import Link from "next/link";
@@ -42,6 +43,7 @@ export default function Home() {
   }, [page]);
 
   return (
+    <AdminOnly>
     <div className="w-full flex justify-center   min-h-max ">
       {isLoading ? (
         <Loading />
@@ -121,6 +123,6 @@ export default function Home() {
           </div>
         </div>
       )}
-    </div>
+    </div></AdminOnly>
   );
 }

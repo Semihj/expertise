@@ -177,7 +177,17 @@ export default function UpdateMainPage() {
                       className="font-semibold border p-1 focus:outline-none "
                     />
                   </div>
-                  <div className="  "></div>
+                  <div className="uppercase flex gap-24  w-full ">
+                    <h1 className="">Model</h1>
+                    <input
+                      onChange={handleChange}
+                      defaultValue={formData.model}
+                      name="model"
+                      type="text"
+                      className="font-semibold border p-1 focus:outline-none "
+                    />
+                  </div>
+                 
                 </div>
                 <div className="flex w-full justify-between px-5 py-2  font-semibold border-b ">
                   <div className="uppercase flex  w-full ">
