@@ -5,12 +5,12 @@ import { MdOutlineCancel } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Loading from "@/components/Loading";
+import { format } from "date-fns";
 
-const url = process.env.NEXT_DEV_URL || "http://localhost:3000"
 
 export default function CreatePage() {
   const [formData, setFormData] = useState({
-    arac_giris_tarih:"",
+    arac_giris_tarih:format(new Date(), "dd-MM-yyyy"),
     arac_giris_km:0,
     arac_cıkıs_km:0,
     olusturan:"",
@@ -89,6 +89,7 @@ export default function CreatePage() {
                   </h1>
                   <input
                     name="arac_giris_tarih"
+                    defaultValue={formData.arac_giris_tarih}
                     required
                     type="text"
                     onChange={handleChange}
