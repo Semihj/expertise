@@ -58,7 +58,6 @@ export default function UpdateBar({isUpdateBar,motorData,note,setIsUpdateBar,set
   
   ]
 
-  console.log(newColor);
 
  
   

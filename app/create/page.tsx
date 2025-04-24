@@ -6,22 +6,25 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Loading from "@/components/Loading";
 import { format } from "date-fns";
+import { useSelector } from "react-redux";
 
 
 export default function CreatePage() {
+  const {user} = useSelector(state => state.user);
+  
   const [formData, setFormData] = useState({
     arac_giris_tarih:format(new Date(), "dd-MM-yyyy"),
     arac_giris_km:0,
     arac_cıkıs_km:0,
-    olusturan:"",
-    paket:"",
+    olusturan:user?.name || "",
+    paket:"Basic",
     ucret:0,
     marka:"",
     model:"",
     plaka:"",
-    yakıt:"",
+    yakıt:"Dizel",
     sasi_no:"",
-    vites:"",
+    vites:"Manuel",
     motor_no:"",
     renk:"",
     km:0,
@@ -58,13 +61,11 @@ export default function CreatePage() {
         setIsLoading(false);
         router.push(`/car/${data._id}`);
       }
-      console.log(data);
     } catch (error) {
       setIsLoading(false);
       console.log(error);
     }
   };
-  console.log(formData);
 
   return (
     <div className="w-full h-full flex justify-center py-10    ">
@@ -103,7 +104,7 @@ export default function CreatePage() {
                   </h1>
                   <input
                     onChange={handleChange}
-
+                    defaultValue={formData.arac_giris_km}
                     name="arac_giris_km"
                     type="number"
                     className="font-semibold border p-1 focus:outline-none "
@@ -116,7 +117,7 @@ export default function CreatePage() {
                   </h1>
                   <input
                     onChange={handleChange}
-
+                    defaultValue={formData.arac_cıkıs_km}
                     name="arac_cıkıs_km"
                     type="number"
                     className="font-semibold border p-1 focus:outline-none "
@@ -134,7 +135,7 @@ export default function CreatePage() {
                   <input
                     onChange={handleChange}
                     required
-
+                    defaultValue={formData.olusturan}
                     name="olusturan"
                     type="text"
                     className="font-semibold border p-1 focus:outline-none "
@@ -144,6 +145,7 @@ export default function CreatePage() {
                   <h1 className="uppercase font-semibold ">Expertiz paketi</h1>
                   <input
                     onChange={handleChange}
+                    defaultValue={formData.paket}
                     name="paket"
                     type="text"
                     className="font-semibold border p-1 focus:outline-none "
@@ -223,8 +225,8 @@ export default function CreatePage() {
                     <h1 className="w-full">Yakıt türü</h1>
                     <input
                       onChange={handleChange}
-                    required
-
+                      required
+                      defaultValue={formData.yakıt}
                       name="yakıt"
                       type="text"
                       className="font-semibold border p-1 focus:outline-none "
@@ -246,7 +248,7 @@ export default function CreatePage() {
                     <input
                       onChange={handleChange}
                       required
-
+                      defaultValue={formData.vites}
                       name="vites"
                       type="text"
                       className="font-semibold border p-1 focus:outline-none "
@@ -279,6 +281,7 @@ export default function CreatePage() {
                     <input
                       onChange={handleChange}
                       name="km"
+                      defaultValue={formData.km}
                       type="number"
                       className="font-semibold border p-1 focus:outline-none "
                     />

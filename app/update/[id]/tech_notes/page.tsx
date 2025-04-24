@@ -173,7 +173,6 @@ export default function SkeletonPage() {
         })
       })
       const data = await res.json();
-      console.log(data);
       setIsLoading(false)
     } catch (error) {
       console.log(error);
@@ -297,7 +296,7 @@ export default function SkeletonPage() {
         <Button className="fixed uppercase bottom-10 right-10" onClick={takeScreenshot}>
           Bitir
         </Button>
-          <div className="absolute top-10 right-2 xl:right-10" onClick={addNewNote} >
+          <div className="absolute top-10 right-2 xl:right-10 cursor-pointer" onClick={addNewNote} >
           <CirclePlus className="w-10 h-10" />
           </div>
       </div>

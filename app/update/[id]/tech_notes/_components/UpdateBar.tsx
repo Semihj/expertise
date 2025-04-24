@@ -46,7 +46,6 @@ export default function UpdateBar({isUpdateBar,notes,note,setIsUpdateBar,setNote
   
   ]
 
-  console.log(newColor);
 
   const newNoteOptions = [
     {
@@ -94,7 +93,6 @@ export default function UpdateBar({isUpdateBar,notes,note,setIsUpdateBar,setNote
     fontSize:any,
     padding:any
   }) => {
-   console.log(newFontSize);
    
     
     const note = notes.find((note) => note.id === id);
@@ -112,7 +110,6 @@ export default function UpdateBar({isUpdateBar,notes,note,setIsUpdateBar,setNote
     setNotes(newNotes)
 
   }
-   console.log(notes);
   return (
     <Sheet open={isUpdateBar} onOpenChange={(val) => {
         if(!val) setIsUpdateBar(false)
@@ -165,7 +162,7 @@ export default function UpdateBar({isUpdateBar,notes,note,setIsUpdateBar,setNote
             <SheetTrigger>    <Button 
                 onClick={() => handleDeleteNote(note.id)}
                 className='bg-red-600 font-semibold text-white ' >
-                  Delete
+                  Sil
                 </Button>
                 </SheetTrigger>
                 <SheetTrigger>
@@ -176,7 +173,7 @@ export default function UpdateBar({isUpdateBar,notes,note,setIsUpdateBar,setNote
                 padding:newPadding,
                 fontSize:newFontSize
               }) } >
-                Update
+                Bitir
               </Button></SheetTrigger>
             </div></div>
           </div>

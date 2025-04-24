@@ -58,7 +58,6 @@ export default function UpdateMainPage() {
         setIsLoading(false);
         router.push(`/car/${data._id}`);
       }
-      console.log(data);
     } catch (error) {
       setIsLoading(false);
       console.log(error);
@@ -66,7 +65,6 @@ export default function UpdateMainPage() {
   };
 
 
-  console.log(formData);
 
   return (
     <div className="w-full h-full flex justify-center py-10    ">

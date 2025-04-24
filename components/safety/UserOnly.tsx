@@ -9,7 +9,6 @@ export default function UserOnly({children}:{children:React.ReactNode}) {
     const params = useParams()
     const {user} = useSelector((state) => state.user)
     const {raporNo} = useSelector((state) => state.raporNo)
-    console.log(raporNo);
     
     const router = useRouter()
     useEffect(() => {

@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function TechNotes({notes,setDesc,desc }:{notes:any,desc:any,setDesc:any}) {
-console.log(desc);
 
  
    

@@ -13,10 +13,9 @@ export default function AdminAuthPage() {
   const {user} = useSelector((state) => state.user)
 
   const router = useRouter()
-  console.log(user);
   
   useEffect(() => {
-    if(user._id) {
+    if(user?._id) {
       router.push("/")
     }
   }, [user])
@@ -32,8 +31,10 @@ export default function AdminAuthPage() {
       const {data} = await res.json()
       if(!data) {
         alert("Ad veya Sifre yanlıs")
+      }else {
+        dispatch(setUser(data))
       }
-      dispatch(setUser(data))
+      
      
     } catch (error) {
       console.log(error);
@@ -43,7 +44,7 @@ export default function AdminAuthPage() {
 
   return (
     <div className="w-full h-screen flex justify-center   ">
-    <div  className='w-max min-w-[600px] mt-10 flex flex-col h-max  rounded-md border bg-black/90 shadow-xl p-4 text-white ' >
+    <form  className='w-max min-w-[600px] mt-10 flex flex-col h-max  rounded-md border bg-black/90 shadow-xl p-4 text-white ' >
       <div className="flex flex-col gap-2">
         <label className='text-2xl font-bold ' >
           Kullanıcı Adı
@@ -69,7 +70,7 @@ export default function AdminAuthPage() {
         />
       </div>
       <Button onClick={handleSubmit} variant={"secondary"} className=' flex justify-center mt-4 items-center w-max' > Giriş </Button>
-    </div>
+    </form>
     </div>
   )
 }

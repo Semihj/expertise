@@ -224,7 +224,6 @@ export default function MotorUpdate() {
       })
       const data = await res.json();
       setIsLoading(false)
-      console.log(data);
     } catch (error) {
       setIsLoading(false)
       console.log(error);
@@ -271,12 +270,10 @@ export default function MotorUpdate() {
       not:"",
     } ])
   }
-  console.log(motorData[0].not);
   
   
   const handleNoteChange = ({id,newNot}:{id:number,newNot:string}) => {
     const motor = motorData.find((data) => data.id === id);
-    console.log(newNot);
     
     if (motor) {
       setMotorData((prevData) =>
@@ -357,7 +354,7 @@ export default function MotorUpdate() {
        </div>
       </div>
       <div className="flex flex-col gap-5 mt-10 ">
-      <div className="" onClick={addNewNote} >
+      <div className="cursor-pointer" onClick={addNewNote} >
           <CirclePlus className="w-10 h-10" />
           </div>
      </div> </div>}

@@ -8,7 +8,6 @@ export default function AdminOnly({children}:{children:React.ReactNode}) {
    
     const params = useParams()
     const {user} = useSelector((state) => state.user)
-    console.log(user);
     
     const router = useRouter()
     useEffect(() => {

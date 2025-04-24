@@ -9,7 +9,6 @@ import Link from 'next/link';
 
 export default function AuthPage() {
   const data = useSelector((state) => state)
-  console.log(data);
   
   return (
     <div className='w-full h-full min-h-screen items-center flex justify-center flex-wrap gap-5 ' >
